@@ -32,16 +32,16 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic new-topic --describe
 
 ######## S4 ########
 # T1: Produce messages with keys
-kafka-console-producer.sh --bootstrap-server localhost:9092 --topic second-topic
+kafka-console-producer.sh.sh --bootstrap-server localhost:9092 --topic second-topic
 --property parse.key=true --property key.separator=:
 #> key1:message1
 #> user34:{"order_id": "o88", "product_id": "p67", "quantity": 3}
 
 # T2: consume
-kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic second-topic
+kafka-console-consumer.sh.sh --bootstrap-server localhost:9092 --topic second-topic
 --from-beginning
 
-kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic second-topic
+kafka-console-consumer.sh.sh --bootstrap-server localhost:9092 --topic second-topic
 --formatter kafka.tools.DefaultMessageFormatter 
 --property print.timestamp=true 
 --property print.key=true 
